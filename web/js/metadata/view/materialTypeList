@@ -1,0 +1,35 @@
+{
+    "type": "Ext.dataview.List",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "materialTypeList",
+        "designer|userClassName": "materialTypeList"
+    },
+    "name": "MyList",
+    "designerId": "df4b3cce-fcc6-43a1-8c31-afb7ea34fd3e",
+    "cn": [
+        {
+            "type": "Ext.XTemplate",
+            "reference": {
+                "name": "itemTpl",
+                "type": "object"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|displayName": "itemTpl",
+                "implHandler": [
+                    "<div>名称：{name}<br>",
+                    "code:{code}<br>",
+                    "    <input type=\"hidden\" value=\"{id}\"/>",
+                    "</div>"
+                ]
+            },
+            "name": "itemTpl",
+            "designerId": "2e5eada1-a090-43da-bc36-45ebec74d125"
+        }
+    ]
+}

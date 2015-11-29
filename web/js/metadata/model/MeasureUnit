@@ -1,0 +1,67 @@
+{
+    "type": "Ext.data.Model",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "MeasureUnit"
+    },
+    "name": "MyModel",
+    "designerId": "2a4679cf-19f8-4949-8433-4b1cbee2d894",
+    "cn": [
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "id"
+            },
+            "name": "field10",
+            "designerId": "358bca9a-6082-46d9-aafb-2221cbcbbb4e"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "name"
+            },
+            "name": "field11",
+            "designerId": "8e2a15d5-f88b-4a94-8aac-dd9426c03686"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "code"
+            },
+            "name": "field12",
+            "designerId": "2568bfdb-c80d-42b0-befb-8f52c992a42d"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "isBasic"
+            },
+            "name": "field13",
+            "designerId": "11f7f30f-c46b-4f5d-ae3e-68888281a08b"
+        }
+    ]
+}
