@@ -1,0 +1,53 @@
+{
+   "name": "Feed",
+   "indexHtmlPath": "index.html",
+   "url": null,
+   "js": [
+      {
+         "path": "touch/sencha-touch.js",
+         "x-bootstrap": true
+      },
+//      {
+////         "path": "bootstrap.js",
+//         "path":"http://cdn.bootcss.com/bootstrap/3.3.4/js/bootstrap.min.js",
+//         "x-bootstrap": true
+//      },
+      {
+         "path": "app.js",
+         "bundle": true,
+         "update": "delta"
+      }
+   ],
+   "css": [
+      {
+         "update": "delta",
+         "platform": [
+            "phone",
+            "tablet",
+            "desktop"
+         ],
+         "theme": "Default",
+         "path": "resources/css/sencha-touch-4de75053-aecf-4812-9395-a51ec6c066c5.css"
+      }
+   ],
+   "appCache": {
+      "cache": [
+         "index.html"
+      ],
+      "network": [
+         "*"
+      ],
+      "fallback": []
+   },
+   "resources": [
+      "resources/images",
+      "resources/icons",
+      "resources/startup"
+   ],
+   "ignore": [
+      ".svn$"
+   ],
+   "archivePath": "archive",
+   "requires": [],
+   "id": "4e176405-9a69-43da-a291-fcaa295d3815"
+}

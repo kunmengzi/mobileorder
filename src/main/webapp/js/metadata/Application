@@ -1,0 +1,37 @@
+{
+    "type": "Ext.app.Application",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "controllers": [
+            "ItemList"
+        ],
+        "models": [
+            "Item",
+            "MaterialType",
+            "Material",
+            "MeasureUnit"
+        ],
+        "name": "Feed",
+        "requires": [
+            "Ext.MessageBox"
+        ],
+        "stores": [
+            "Items",
+            "MaterialTypes",
+            "Material",
+            "MeasureUnit"
+        ],
+        "views": [
+            "TabPanel",
+            "ItemList",
+            "ItemDetail",
+            "MaterialTypeList"
+        ]
+    },
+    "name": "Application",
+    "designerId": "application"
+}

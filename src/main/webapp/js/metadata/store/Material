@@ -1,0 +1,39 @@
+{
+    "type": "Ext.data.Store",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "Material",
+        "model": "Material",
+        "storeId": "Material"
+    },
+    "name": "MyStore",
+    "designerId": "c22f3ef7-6eb9-428c-9020-1e87ac6175c8",
+    "cn": [
+        {
+            "type": "Ext.data.proxy.Ajax",
+            "reference": {
+                "name": "proxy",
+                "type": "object"
+            },
+            "codeClass": null,
+            "name": "MyAjaxProxy1",
+            "designerId": "57189a15-7902-41ad-944d-bb7ca9f4fd0b",
+            "cn": [
+                {
+                    "type": "Ext.data.reader.Json",
+                    "reference": {
+                        "name": "reader",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "name": "MyJsonReader2",
+                    "designerId": "7e51f4c6-63ee-4fff-8f45-7d151519caa0"
+                }
+            ]
+        }
+    ]
+}
