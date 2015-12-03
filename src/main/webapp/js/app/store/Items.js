@@ -42,7 +42,6 @@ Ext.define('Feed.store.Items', {
                 num: numItems || 20
             }
         });
-
     }
 
 });

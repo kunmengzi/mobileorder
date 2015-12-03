@@ -9,9 +9,36 @@
     <servlet-name>carItemListServlet</servlet-name>
     <servlet-class>com.boocu.kingdee.eas.mobileorder.servlet.CarItemListServlet</servlet-class>
   </servlet>
+  <servlet>
+    <servlet-name>materialTypeServlet</servlet-name>
+    <servlet-class>com.boocu.kingdee.eas.mobileorder.servlet.MaterialTypeServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>materialServlet</servlet-name>
+    <servlet-class>com.boocu.kingdee.eas.mobileorder.servlet.MaterialServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>measureUnitServlet</servlet-name>
+    <servlet-class>com.boocu.kingdee.eas.mobileorder.servlet.MeasureUnitServlet</servlet-class>
+  </servlet>
 
   <servlet-mapping>
     <servlet-name>carItemListServlet</servlet-name>
     <url-pattern>/d/q/carItemList.json</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>materialTypeServlet</servlet-name>
+    <url-pattern>/d/q/materialType.json</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>materialServlet</servlet-name>
+    <url-pattern>/d/q/material.json</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>measureUnitServlet</servlet-name>
+    <url-pattern>/d/q/measureUnit.json</url-pattern>
   </servlet-mapping>
 </web-app>

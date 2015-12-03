@@ -25,12 +25,13 @@ Ext.define('Feed.store.MaterialTypes', {
 
     config: {
         model: 'Feed.model.MaterialType',
-        storeId: 'MaterialTypes',
+        storeId: 'MaterialTypesStoreId',
         proxy: {
             type: 'ajax',
-            url: 'http://localhost:8080/abc.json',
+            url: 'http://localhost:8888/d/q/materialType.json',
             reader: {
-                type: 'json'
+                type: 'json',
+                rootProperty: 'data'
             }
         }
     }

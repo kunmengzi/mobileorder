@@ -61,7 +61,7 @@ Ext.define('Feed.controller.CarItemList', {
     loadItemsOnFeedLoad: function() {
         var self = this;
 
-        debugger;
+        //debugger;
 
         Ext.getStore('ItemsId').on('load', function(store, records) {
             //var feed = records[0],

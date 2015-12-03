@@ -34,16 +34,19 @@ Ext.application({
         'Items',
         'MaterialTypes',
         'Material',
-        'MeasureUnit'
+        'MeasureUnit',
+        'AddFormStore'
     ],
     views: [
         'TabPanel',
         'ItemList',
         'ItemDetail',
-        'MaterialTypeList'
+        'MaterialTypeList',
+        'AddFormView'
     ],
     controllers: [
-        'CarItemList'
+        'CarItemList',
+        'AddFormController'
     ],
     name: 'Feed',
 

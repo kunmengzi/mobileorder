@@ -32,6 +32,8 @@ Ext.define('Feed.view.TabPanel', {
     ],
 
     config: {
+        id:'TabPanelId',
+
         items: [
             {
                 xtype: 'container',
@@ -77,94 +79,8 @@ Ext.define('Feed.view.TabPanel', {
                 layout: 'fit',
                 items: [
                     {
-                        xtype: 'formpanel',
-                        items: [
-                            {
-                                xtype: 'fieldset',
-                                title: '选择商品',
-                                items: [
-                                    {
-                                        xtype: 'selectfield',
-                                        label: '物料分类',
-                                        labelWidth: '35%',
-                                        required: true,
-                                        placeHolder: '选择物料分类',
-                                        readOnly: false
-                                    },
-                                    {
-                                        xtype: 'selectfield',
-                                        label: '商品',
-                                        labelWidth: '35%',
-                                        required: true,
-                                        placeHolder: '需要下单的商品'
-                                    },
-                                    {
-                                        xtype: 'selectfield',
-                                        label: '计量单位',
-                                        labelWidth: '35%',
-                                        required: true,
-                                        placeHolder: '可切换'
-                                    },
-                                    {
-                                        xtype: 'numberfield',
-                                        label: '数量',
-                                        labelWidth: '35%',
-                                        required: true
-                                    }
-                                ]
-                            },
-                            {
-                                xtype: 'fieldset',
-                                title: '订单金额',
-                                items: [
-                                    {
-                                        xtype: 'numberfield',
-                                        label: '单价',
-                                        labelWidth: '35%',
-                                        readOnly: true
-                                    },
-                                    {
-                                        xtype: 'numberfield',
-                                        label: '金额',
-                                        labelWidth: '35%',
-                                        readOnly: true
-                                    }
-                                ]
-                            },
-                            {
-                                xtype: 'container',
-                                layout: 'hbox',
-                                items: [
-                                    {
-                                        xtype: 'spacer'
-                                    },
-                                    {
-                                        xtype: 'button',
-                                        height: 40,
-                                        ui: 'decline',
-                                        width: '35%',
-                                        icon: 'true',
-                                        iconCls: 'delete',
-                                        text: '清空'
-                                    },
-                                    {
-                                        xtype: 'spacer'
-                                    },
-                                    {
-                                        xtype: 'button',
-                                        height: 40,
-                                        ui: 'confirm',
-                                        width: '50%',
-                                        icon: 'true',
-                                        iconCls: 'add',
-                                        text: '添加购物车'
-                                    },
-                                    {
-                                        xtype: 'spacer'
-                                    }
-                                ]
-                            }
-                        ]
+                        xtype: 'AddFormView',
+                         id: 'AddFormViewId'
                     }
                 ]
             }

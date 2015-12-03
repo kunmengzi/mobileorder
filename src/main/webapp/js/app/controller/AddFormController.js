@@ -25,81 +25,68 @@ Ext.define('Feed.controller.AddFormController', {
             'AddFormStore'
         ],
         views: [
-            'ItemList'
+            'AddFormView'
         ],
 
         refs: {
-            postsNav: '#postsNav',
-            itemList: '#itemList'
+            materialTypeSelect:"#materialTypeSelectId",
+            materialSelect:"#materialSelectId",
+            measureUnitSelect:"#measureUnitSelectId",
+            priceField:'#priceFieldId',
+            clearBtn:'#clearBtnId',
+            addCarBtn:'#addCarBtnId',
+            addFormPanel:'#AddFormViewId'
         },
 
         control: {
-            "itemList": {
-                activate: 'onItemsListActivate',
-                itemtap: 'onItemsListItemTap'
+            'materialTypeSelect':{
+                change:'materialTypeChange'
+            },
+            'materialSelect':{
+                change:'materialChange'
+            },
+            'measureUnitSelect':{
+                change:'measureUnitChange'
+            },
+            'clearBtn':{
+                tap:'clearAction'
             }
         }
+    },
+
+    clearAction:function(comp, e, eOpts){
+        this.getAddFormPanel().reset();
+    },
+
+    measureUnitChange:function(comp,newVal,oldVal,opts){
+        console.log('measureUnit change ..........')
+    },
+
+    materialChange:function(comp,newVal,oldVal,opts){
+        Ext.getStore("MeasureUnitStoreId").loadMeasureUnit(newVal);
+        //comp.getRecord().getData().code;
+        this.getPriceField().setValue(comp.getRecord().getData().id);
+    },
+
+    materialTypeChange:function(comp,newVal,oldVal,opts){
+        Ext.getStore("MaterialStoreId").loadMaterials(newVal);
     },
 
     onItemsListActivate: function(newActiveItem, container, oldActiveItem, eOpts) {
         this.getApplication().fireEvent('updateNav');
     },
 
-    onItemsListItemTap: function(dataview, index, target, record, e, eOpts) {
-        var story = Ext.create('widget.postsstory',{
-            title: record.get('title')
-        });
-        story.setData(record.data);
-        this.getPostsNav().push(story);
-    },
-
     launch: function() {
-        this.loadItemsOnFeedLoad();
-        Ext.getStore('ItemsId').loadCarItems('http://localhost:8888/d/q/carItemList.json');
-    },
-
-    loadItemsOnFeedLoad: function() {
-        var self = this;
-
-        debugger;
-
-        Ext.getStore('ItemsId').on('load', function(store, records) {
-            //var feed = records[0],
-            //    posts, title, feedsStore;
-            //
-            //if (feed) {
-            //    posts = feed.posts().getData().items;
-            //    title = feed.get('title');
-            //    feedsStore = Ext.getStore('Feeds');
-            //
-            //    Ext.getStore('Posts').setData(posts);
-            //
-            //    self.getItemList().title = title;
-            //
-            //    if (feedsStore.find('url', feed.get('url')) < 0){
-            //        feedsStore.add(feed);
-            //    }
-            //} else {
-            //    Ext.Msg.alert('Error', 'Could not load feed. Check that the URL is a valid feed.');
-            //}
-        });
-
+        Ext.getStore("MaterialTypesStoreId").load();
     },
 
     onUpdateNav: function() {
         var self = this;
-        // ugly hack, so that this happens after title is internally set by back state stack
-        //Ext.defer(function(){
-        //    var title = self.getItemList().title;
-        //    self.getPostsNav().getNavigationBar().setTitle(title);
-        //},500);
     },
 
     init: function(application) {
-
         application.on([
         { event: 'updateNav', fn: this.onUpdateNav, scope: this }
         ]);
     }
-
 });

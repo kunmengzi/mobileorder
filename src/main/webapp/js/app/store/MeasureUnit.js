@@ -25,12 +25,23 @@ Ext.define('Feed.store.MeasureUnit', {
 
     config: {
         model: 'Feed.model.MeasureUnit',
-        storeId: 'MeasureUnit',
+        storeId: 'MeasureUnitStoreId',
         proxy: {
             type: 'ajax',
+            url: 'http://localhost:8888/d/q/measureUnit.json',
             reader: {
-                type: 'json'
+                type: 'json',
+                rootProperty: 'data'
             }
         }
+    },
+
+    loadMeasureUnit: function(materialType, numItems) {
+        this.load({
+            params:{
+                materialType: materialType,
+                num: numItems || 20
+            }
+        });
     }
 });

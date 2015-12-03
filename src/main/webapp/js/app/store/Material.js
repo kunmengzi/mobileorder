@@ -25,12 +25,23 @@ Ext.define('Feed.store.Material', {
 
     config: {
         model: 'Feed.model.Material',
-        storeId: 'Material',
+        storeId: 'MaterialStoreId',
         proxy: {
             type: 'ajax',
+            url: 'http://localhost:8888/d/q/material.json',
             reader: {
-                type: 'json'
+                type: 'json',
+                rootProperty: 'data'
             }
         }
+    },
+
+    loadMaterials: function(materialType, numItems) {
+        this.load({
+            params:{
+                materialType: materialType,
+                num: numItems || 20
+            }
+        });
     }
 });
