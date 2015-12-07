@@ -1,8 +1,6 @@
 package com.boocu.kingdee.eas.mobileorder.servlet;
 
-import com.boocu.kingdee.eas.mobileorder.vo.MaterialVO;
-import com.boocu.kingdee.eas.mobileorder.vo.ShoppingCarVO;
-import com.boocu.kingdee.eas.mobileorder.vo.JsonListResult;
+import com.boocu.kingdee.eas.mobileorder.vo.*;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -18,7 +16,7 @@ import java.util.List;
 /**
  * Created by jordan on 2015/11/30.
  */
-public class CarItemListServlet  extends HttpServlet {
+public class NetOrderServlet extends HttpServlet {
 
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException
@@ -26,7 +24,7 @@ public class CarItemListServlet  extends HttpServlet {
         this.doPost(req,resp);
     }
 
-    public CarItemListServlet() {
+    public NetOrderServlet() {
     }
 
     protected void doPost(HttpServletRequest req, HttpServletResponse resp)
@@ -35,17 +33,26 @@ public class CarItemListServlet  extends HttpServlet {
         long a =  System.currentTimeMillis();
         int count =(int)(a%10);
 
-        List<ShoppingCarVO> cars = new ArrayList<ShoppingCarVO>();
+        List<NetOrderVO> cars = new ArrayList<NetOrderVO>();
         for(int i=0; i<count; i++){
-            ShoppingCarVO vo = new ShoppingCarVO();
-           vo.setId(String.valueOf(i+1));
-            vo.setQty(new BigDecimal(234 * i));
-            vo.setAmount(new BigDecimal(230 * i));
-            vo.setChannel("渠道名称 ");
-            vo.setPrice(new BigDecimal(133));
-            vo.setShopDate(new Date());
-            vo.setSaleOrgUnitId("dsafsdfasdfas");
-            vo.setMaterialVO(new MaterialVO("dfaf","dfasdf"));
+            NetOrderVO vo = new NetOrderVO();
+            vo.setAmount(new BigDecimal(100.00 * i));
+            vo.setAskArriveDate(new Date());
+            vo.setBillStatus(1);
+            if(1%2==0)
+            vo.setBillStatusDesc("审核");
+            else
+            vo.setBillStatusDesc("完成");
+
+            vo.setBizDate(new Date());
+            vo.setChannelVO(new ChannelVO(String.valueOf(i + 1), "渠道A"));
+
+            vo.setIsFightBack(false);
+
+            vo.setNumber("单据编号" + i);
+            vo.setQty(new BigDecimal(23 * i));
+            vo.setSaleOrgUnitVO(new SaleOrgUnitVO("afbd", "dfasdfasdf"));
+            vo.setCustomerVO(new CustomerVO("dfsa","fadsfasfasd"));
 
             cars.add(vo);
         }
@@ -55,7 +62,7 @@ public class CarItemListServlet  extends HttpServlet {
         PrintWriter out = null;
         try {
 
-            JsonListResult<ShoppingCarVO> jsonResult  = new JsonListResult<ShoppingCarVO>();
+            JsonListResult<NetOrderVO> jsonResult  = new JsonListResult<NetOrderVO>();
             jsonResult.setData(cars);
 
             out = resp.getWriter();

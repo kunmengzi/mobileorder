@@ -13,22 +13,22 @@
  * Do NOT hand edit this file.
  */
 
-Ext.define('Feed.store.MeasureUnit', {
+Ext.define('Feed.store.MeasureUnitStore', {
     extend: 'Ext.data.Store',
-    alias: 'store.MeasureUnit',
+    alias: 'store.MeasureUnitStore',
 
     requires: [
-        'Feed.model.MeasureUnit',
+        'Feed.model.MeasureUnitModel',
         'Ext.data.proxy.Ajax',
         'Ext.data.reader.Json'
     ],
 
     config: {
-        model: 'Feed.model.MeasureUnit',
+        model: 'Feed.model.MeasureUnitModel',
         storeId: 'MeasureUnitStoreId',
         proxy: {
             type: 'ajax',
-            url: 'http://localhost:8888/d/q/measureUnit.json',
+            url: "http://"+CfgConst.host+":"+CfgConst.port+"/d/q/measureUnit.json",
             reader: {
                 type: 'json',
                 rootProperty: 'data'

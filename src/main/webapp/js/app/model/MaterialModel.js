@@ -13,9 +13,9 @@
  * Do NOT hand edit this file.
  */
 
-Ext.define('Feed.model.Material', {
+Ext.define('Feed.model.MaterialModel', {
     extend: 'Ext.data.Model',
-    alias: 'model.Material',
+    alias: 'model.MaterialModel',
 
     requires: [
         'Ext.data.Field'
@@ -30,7 +30,10 @@ Ext.define('Feed.model.Material', {
                 name: 'name'
             },
             {
-                name: 'code'
+                name: 'number'
+            },
+            {
+                name: 'model'
             }
         ]
     }

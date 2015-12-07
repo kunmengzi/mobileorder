@@ -34,10 +34,11 @@ Ext.define('Feed.view.AddFormView', {
                         required: true,
                         placeHolder: '选择物料分类',
                         readOnly: false,
-                        store:'MaterialTypesStoreId',
+                        store:'MaterialGroupStoreId',
                         displayField:'name',
                         valueField:'id',
-                        id:"materialTypeSelectId"
+                        id:"materialTypeSelectId",
+                        name:'materialType'
                     },
                     {
                         xtype: 'selectfield',
@@ -48,7 +49,8 @@ Ext.define('Feed.view.AddFormView', {
                         valueField:'id',
                         store:'MaterialStoreId',
                         id:'materialSelectId',
-                        placeHolder:'需要下单的商品'
+                        placeHolder:'需要下单的商品',
+                        name:'material'
                     },
                     {
                         xtype: 'selectfield',
@@ -59,14 +61,16 @@ Ext.define('Feed.view.AddFormView', {
                         displayField:'name',
                         valueField:'id',
                         store:'MeasureUnitStoreId',
-                        id:'measureUnitSelectId'
+                        id:'measureUnitSelectId',
+                        name:'measureUnit'
                     },
                     {
                         xtype: 'numberfield',
                         label: '数量',
                         labelWidth: '35%',
                         required: true,
-                        id:'numFieldId'
+                        id:'numFieldId',
+                        name:'num'
                     }
                 ]
             },
@@ -79,14 +83,20 @@ Ext.define('Feed.view.AddFormView', {
                         label: '单价',
                         labelWidth: '35%',
                         readOnly: true,
-                        id:'priceFieldId'
+                        id:'priceFieldId',
+                        name:'price'
                     },
                     {
                         xtype: 'numberfield',
                         label: '金额',
                         labelWidth: '35%',
                         readOnly: true,
-                        id:'amountFieldId'
+                        id:'amountFieldId',
+                        name:'amount'
+                    },{
+                        xtype:'hiddenfield',
+                        name:'test',
+                        value:'中文'
                     }
                 ]
             },

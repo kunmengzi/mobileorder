@@ -19,7 +19,7 @@ Ext.define('Feed.controller.AddFormController', {
 
     config: {
         models: [
-            'Item'
+            'ShoppingCarModel'
         ],
         stores: [
             'AddFormStore'
@@ -50,8 +50,31 @@ Ext.define('Feed.controller.AddFormController', {
             },
             'clearBtn':{
                 tap:'clearAction'
+            },
+            'addCarBtn':{
+                tap:'addCar'
             }
         }
+    },
+
+    addCar:function(comp, e, eOpts){
+        console.log(this.getAddFormPanel().getValues(false,true));
+        console.log(this.getAddFormPanel().getParamOrder());
+
+        ///
+//,
+        Ext.Ajax.request({
+            url: '/d/s/addCar.json',
+            params: Ext.urlEncode(this.getAddFormPanel().getValues(false,true)),
+            method:'post',
+            success: function(response){
+                var text = response.responseText;
+               console.log(Ext.encode(text));
+                console.log(text);
+                console.log(response);
+                alert(text);
+            }
+        });
     },
 
     clearAction:function(comp, e, eOpts){
@@ -77,7 +100,7 @@ Ext.define('Feed.controller.AddFormController', {
     },
 
     launch: function() {
-        Ext.getStore("MaterialTypesStoreId").load();
+        Ext.getStore("MaterialGroupStoreId").load();
     },
 
     onUpdateNav: function() {

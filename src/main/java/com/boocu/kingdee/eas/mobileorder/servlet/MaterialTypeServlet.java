@@ -1,8 +1,7 @@
 package com.boocu.kingdee.eas.mobileorder.servlet;
 
-import com.boocu.kingdee.eas.mobileorder.vo.CarItem;
 import com.boocu.kingdee.eas.mobileorder.vo.JsonListResult;
-import com.boocu.kingdee.eas.mobileorder.vo.MaterialTypeVO;
+import com.boocu.kingdee.eas.mobileorder.vo.MaterialGroupVO;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -11,7 +10,6 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 /**
@@ -34,13 +32,13 @@ public class MaterialTypeServlet extends HttpServlet {
         long a =  System.currentTimeMillis();
         int count =(int)(a%10);
 
-        List<MaterialTypeVO> cars = new ArrayList<MaterialTypeVO>();
-        cars.add(new MaterialTypeVO());
+        List<MaterialGroupVO> cars = new ArrayList<MaterialGroupVO>();
+        cars.add(new MaterialGroupVO());
         for(int i=0; i<count; i++){
-            MaterialTypeVO item = new MaterialTypeVO();
-            item.setId(i+1);
+            MaterialGroupVO item = new MaterialGroupVO();
+            item.setId(String.valueOf(i+1));
             item.setName("名称"+String.valueOf(i+1));
-            item.setCode("code" + String.valueOf(i+1));
+            item.setNumber("code" + String.valueOf(i+1));
             cars.add(item);
         }
 
@@ -49,7 +47,7 @@ public class MaterialTypeServlet extends HttpServlet {
         PrintWriter out = null;
         try {
 
-            JsonListResult<MaterialTypeVO> jsonResult  = new JsonListResult<MaterialTypeVO>();
+            JsonListResult<MaterialGroupVO> jsonResult  = new JsonListResult<MaterialGroupVO>();
             jsonResult.setData(cars);
 
             out = resp.getWriter();

@@ -1,0 +1,21 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="mobileorder:war exploded">
+    <output-path>$PROJECT_DIR$/target/mobileorder</output-path>
+    <root id="root">
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="mobileorder" />
+        </element>
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="Maven: javax.servlet:servlet-api:2.5" />
+          <element id="library" level="project" name="Maven: com.alibaba:fastjson:1.2.4" />
+          <element id="library" level="project" name="Maven: commons-lang:commons-lang:2.6" />
+        </element>
+      </element>
+      <element id="directory" name="META-INF">
+        <element id="file-copy" path="$PROJECT_DIR$/target/mobileorder/META-INF/MANIFEST.MF" />
+      </element>
+      <element id="javaee-facet-resources" facet="mobileorder/web/Web" />
+    </root>
+  </artifact>
+</component>

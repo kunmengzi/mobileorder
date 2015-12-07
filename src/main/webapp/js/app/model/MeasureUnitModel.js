@@ -13,9 +13,9 @@
  * Do NOT hand edit this file.
  */
 
-Ext.define('Feed.model.MeasureUnit', {
+Ext.define('Feed.model.MeasureUnitModel', {
     extend: 'Ext.data.Model',
-    alias: 'model.MeasureUnit',
+    alias: 'model.MeasureUnitModel',
 
     requires: [
         'Ext.data.Field'

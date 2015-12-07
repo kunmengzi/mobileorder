@@ -5,31 +5,25 @@ package com.boocu.kingdee.eas.mobileorder.vo;
  */
 public class MaterialVO extends BaseVO {
 
-    private long id;
-    private String name;
-    private String code;
+    /**
+     * 规则型号
+     */
+    private String model;
 
-    public long getId() {
-        return id;
+    public MaterialVO() {
     }
 
-    public void setId(long id) {
-        this.id = id;
+    public MaterialVO(String id,String name) {
+        this();
+        setId(id);
+        setName(name);
     }
 
-    public String getName() {
-        return name;
+    public String getModel() {
+        return model;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getCode() {
-        return code;
-    }
-
-    public void setCode(String code) {
-        this.code = code;
+    public void setModel(String model) {
+        this.model = model;
     }
 }

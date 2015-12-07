@@ -13,57 +13,54 @@
  * Do NOT hand edit this file.
  */
 
-Ext.define('Feed.controller.CarItemList', {
+Ext.define('Feed.controller.NetOrderController', {
     extend: 'Ext.app.Controller',
-    alias: 'controller.CarItemList',
+    alias: 'controller.NetOrderController',
 
     config: {
         models: [
-            'Item'
+            'NetOrderModel'
         ],
         stores: [
-            'Items'
+            'NetOrderStore'
         ],
         views: [
-            'ItemList'
+            'NetOrderList'
         ],
 
         refs: {
-            postsNav: '#postsNav',
-            itemList: '#itemList'
+            //postsNav: '#postsNav',
+            //itemList: '#itemList'
         },
 
         control: {
-            "itemList": {
-                activate: 'onItemsListActivate',
-                itemtap: 'onItemsListItemTap'
-            }
+            //"itemList": {
+            //    activate: 'onItemsListActivate',
+            //    itemtap: 'onItemsListItemTap'
+            //}
         }
     },
 
-    onItemsListActivate: function(newActiveItem, container, oldActiveItem, eOpts) {
-        this.getApplication().fireEvent('updateNav');
-    },
-
-    onItemsListItemTap: function(dataview, index, target, record, e, eOpts) {
-        var story = Ext.create('widget.postsstory',{
-            title: record.get('title')
-        });
-        story.setData(record.data);
-        this.getPostsNav().push(story);
-    },
+    //onItemsListActivate: function(newActiveItem, container, oldActiveItem, eOpts) {
+    //    this.getApplication().fireEvent('updateNav');
+    //},
+    //
+    //onItemsListItemTap: function(dataview, index, target, record, e, eOpts) {
+    //    var story = Ext.create('widget.postsstory',{
+    //        title: record.get('title')
+    //    });
+    //    story.setData(record.data);
+    //    this.getPostsNav().push(story);
+    //},
 
     launch: function() {
         this.loadItemsOnFeedLoad();
-        Ext.getStore('ItemsId').loadCarItems('http://localhost:8888/d/q/carItemList.json');
+        Ext.getStore('NetOrderStoreId').loadList();
     },
 
     loadItemsOnFeedLoad: function() {
         var self = this;
-
-        //debugger;
-
-        Ext.getStore('ItemsId').on('load', function(store, records) {
+        Ext.getStore('NetOrderStoreId').on('load', function(store, records) {
             //var feed = records[0],
             //    posts, title, feedsStore;
             //
@@ -96,7 +93,6 @@ Ext.define('Feed.controller.CarItemList', {
     },
 
     init: function(application) {
-
         application.on([
         { event: 'updateNav', fn: this.onUpdateNav, scope: this }
         ]);

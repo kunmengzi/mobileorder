@@ -1,7 +1,6 @@
 package com.boocu.kingdee.eas.mobileorder.servlet;
 
 import com.boocu.kingdee.eas.mobileorder.vo.JsonListResult;
-import com.boocu.kingdee.eas.mobileorder.vo.MaterialTypeVO;
 import com.boocu.kingdee.eas.mobileorder.vo.MaterialVO;
 
 import javax.servlet.ServletException;
@@ -39,9 +38,9 @@ public class MaterialServlet extends HttpServlet {
         cars.add(new MaterialVO());
         for(int i=0; i<count; i++){
             MaterialVO item = new MaterialVO();
-            item.setId(i+1);
+            item.setId(String.valueOf(i + 1));
             item.setName("名称"+String.valueOf(i+1));
-            item.setCode("code" + String.valueOf(i+1));
+            item.setNumber("code" + String.valueOf(i+1));
             cars.add(item);
         }
 

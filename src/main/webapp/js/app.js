@@ -18,6 +18,9 @@ Ext.Loader.setConfig({
 
 });
 
+var CfgConst=new Object();
+CfgConst.host='192.168.2.102';
+CfgConst.port=8080;
 
 Ext.application({
 
@@ -25,34 +28,36 @@ Ext.application({
         'Ext.MessageBox'
     ],
     models: [
-        'Item',
-        'MaterialType',
-        'Material',
-        'MeasureUnit'
+        'ShoppingCarModel',
+        'NetOrderModel',
+        'MaterialGroupModel',
+        'MaterialModel',
+        'MeasureUnitModel',
+        'CustomerModel',
+        'SaleOrgUnitModel'
     ],
     stores: [
-        'Items',
-        'MaterialTypes',
-        'Material',
-        'MeasureUnit',
-        'AddFormStore'
+        'ShoppingCarStore',
+        'MaterialGroupStore',
+        'MaterialStore',
+        'MeasureUnitStore',
+        'AddFormStore',
+        'NetOrderStore'
     ],
     views: [
         'TabPanel',
-        'ItemList',
-        'ItemDetail',
-        'MaterialTypeList',
+        'ShoppingCarList',
+        'NetOrderList',
         'AddFormView'
     ],
     controllers: [
-        'CarItemList',
-        'AddFormController'
+        'ShoppingCarController',
+        'AddFormController',
+        'NetOrderController'
     ],
     name: 'Feed',
 
     launch: function() {
-
         Ext.create('Feed.view.TabPanel', {fullscreen: true});
     }
-
 });

@@ -18,7 +18,9 @@ Ext.define('Feed.view.TabPanel', {
     alias: 'widget.tabpanel',
 
     requires: [
-        'Feed.view.ItemList',
+        'Feed.view.ShoppingCarList',
+        'Feed.view.NetOrderList',
+        'Feed.view.AddFormView',
         'Ext.navigation.View',
         'Ext.dataview.List',
         'Ext.navigation.Bar',
@@ -37,20 +39,19 @@ Ext.define('Feed.view.TabPanel', {
         items: [
             {
                 xtype: 'container',
-                title: '购物车',
+                title: '网上订单',
                 iconCls: 'home',
-                id: 'itemsTab',
+                id: 'netOrdersTab',
                 layout: 'fit',
                 items: [
                     {
                         xtype: 'navigationview',
-                        id: 'itemsNav',
+                        id: 'netOrdersNav',
                         useTitleForBackButtonText: true,
                         items: [
                             {
-                                xtype: 'ItemList',
-                                id: 'CarItemListId',
-                                title: '我的购物车'
+                                xtype: 'NetOrderList',
+                                title: '我的订单'
                             }
                         ],
                         navigationBar: {
@@ -63,7 +64,7 @@ Ext.define('Feed.view.TabPanel', {
                                     iconCls: 'refresh',
                                     text: '',
                                     handler:function(){
-                                        Ext.getStore("ItemsId").loadCarItems();
+                                        Ext.getStore("NetOrderStoreId").loadList();
                                     }
                                 }
                             ]
@@ -73,14 +74,73 @@ Ext.define('Feed.view.TabPanel', {
             },
             {
                 xtype: 'container',
-                title: '下单',
+                title: '购物车',
+                iconCls: 'home',
+                id: 'shoppingCarTab',
+                layout: 'fit',
+                items: [
+                    {
+                        xtype: 'navigationview',
+                        id: 'shoppingCarNav',
+                        useTitleForBackButtonText: true,
+                        items: [
+                            {
+                                xtype: 'ShoppingCarList',
+                                title: '我的购物车'
+                            }
+                        ],
+                        navigationBar: {
+                            items: [
+                                {
+                                    xtype: 'button',
+                                    align: 'right',
+                                    id: 'submitCarsBtn',
+                                    ui: 'action',
+                                    iconCls: 'confirm',
+                                    text: '',
+                                    handler:function(){
+                                      Ext.getStore("ShoppingCarStoreId").loadCarItems();
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            {
+                xtype: 'container',
+                title: '订货中心',
                 iconCls: 'add',
                 id: 'addTab',
                 layout: 'fit',
                 items: [
                     {
-                        xtype: 'AddFormView',
-                         id: 'AddFormViewId'
+                        xtype: 'navigationview',
+                        id: 'addCarNav',
+                        useTitleForBackButtonText: true,
+                        items: [
+                            {
+                                xtype: 'AddFormView',
+                                id: 'AddFormViewId',
+                                title: '添加购物车'
+                            }
+                        ]
+                        //,
+                        //navigationBar: {
+                        //    items: [
+                        //        {
+                        //            xtype: 'button',
+                        //            align: 'right',
+                        //            id: 'addCarNewBtn',
+                        //            ui: 'action',
+                        //            iconCls: 'refresh',
+                        //            text: '',
+                        //            handler: function () {
+                        //                Ext.getStore("ItemsId").loadCarItems();
+                        //            }
+                        //        }
+                        //    ]
+                        //}
                     }
                 ]
             }

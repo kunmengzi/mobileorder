@@ -13,21 +13,22 @@
  * Do NOT hand edit this file.
  */
 
-Ext.define('Feed.store.Items', {
+Ext.define('Feed.store.NetOrderStore', {
     extend: 'Ext.data.Store',
-    alias: 'store.Items',
+    alias: 'store.NetOrderStore',
 
     requires: [
-        'Feed.model.Item',
+        'Feed.model.NetOrderModel',
+        'Feed.model.CustomerModel',
         'Ext.data.reader.Json'
     ],
 
     config: {
-        model: 'Feed.model.Item',
-        storeId: 'ItemsId',
+        model: 'Feed.model.NetOrderModel',
+        storeId: 'NetOrderStoreId',
         proxy: {
             type: 'ajax',
-            url: 'http://localhost:8888/d/q/carItemList.json',
+            url: "http://"+CfgConst.host+":"+CfgConst.port+"/d/q/netOrder.json",
             reader: {
                 type: 'json',
                 rootProperty: 'data'
@@ -35,7 +36,7 @@ Ext.define('Feed.store.Items', {
         }
     },
 
-    loadCarItems: function(itemUrl, numItems) {
+    loadList: function(itemUrl, numItems) {
         this.load({
             params:{
             //    q: itemUrl,

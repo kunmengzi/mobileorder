@@ -1,7 +1,6 @@
 package com.boocu.kingdee.eas.mobileorder.servlet;
 
 import com.boocu.kingdee.eas.mobileorder.vo.JsonListResult;
-import com.boocu.kingdee.eas.mobileorder.vo.MaterialTypeVO;
 import com.boocu.kingdee.eas.mobileorder.vo.MeasureUnitVO;
 
 import javax.servlet.ServletException;
@@ -37,9 +36,9 @@ public class MeasureUnitServlet extends HttpServlet {
         cars.add(new MeasureUnitVO());
         for(int i=0; i<count; i++){
             MeasureUnitVO item = new MeasureUnitVO();
-            item.setId(i+1);
+            item.setId(String.valueOf(i+1));
             item.setName("名称"+String.valueOf(i+1));
-            item.setCode("code" + String.valueOf(i+1));
+            item.setNumber("code" + String.valueOf(i+1));
             cars.add(item);
         }
 

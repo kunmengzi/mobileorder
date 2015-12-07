@@ -13,9 +13,9 @@
  * Do NOT hand edit this file.
  */
 
-Ext.define('Feed.model.MaterialType', {
+Ext.define('Feed.model.MaterialGroupModel', {
     extend: 'Ext.data.Model',
-    alias: 'model.MaterialType',
+    alias: 'model.MaterialGroupModel',
 
     requires: [
         'Ext.data.Field'
