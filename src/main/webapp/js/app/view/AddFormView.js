@@ -26,13 +26,14 @@ Ext.define('Feed.view.AddFormView', {
             {
                 xtype: 'fieldset',
                 title: '选择商品',
+                margin:'.5em .5em .5em',
                 items: [
                     {
                         xtype: 'selectfield',
-                        label: '物料分类',
+                        label: '类目',
                         labelWidth: '35%',
                         required: true,
-                        placeHolder: '选择物料分类',
+                        placeHolder: '商品分组',
                         readOnly: false,
                         store:'MaterialGroupStoreId',
                         displayField:'name',
@@ -49,15 +50,15 @@ Ext.define('Feed.view.AddFormView', {
                         valueField:'id',
                         store:'MaterialStoreId',
                         id:'materialSelectId',
-                        placeHolder:'需要下单的商品',
+                        placeHolder:'需下单商品',
                         name:'material'
                     },
                     {
                         xtype: 'selectfield',
-                        label: '计量单位',
+                        label: '单位',
                         labelWidth: '35%',
                         required: true,
-                        placeHolder: '可切换',
+                        placeHolder: '可更改',
                         displayField:'name',
                         valueField:'id',
                         store:'MeasureUnitStoreId',
@@ -70,13 +71,15 @@ Ext.define('Feed.view.AddFormView', {
                         labelWidth: '35%',
                         required: true,
                         id:'numFieldId',
-                        name:'num'
+                        name:'num',
+                        placeHolder: '输入数字'
                     }
                 ]
             },
             {
                 xtype: 'fieldset',
                 title: '订单金额',
+                margin:'.5em .5em .5em',
                 items: [
                     {
                         xtype: 'numberfield',
@@ -84,7 +87,8 @@ Ext.define('Feed.view.AddFormView', {
                         labelWidth: '35%',
                         readOnly: true,
                         id:'priceFieldId',
-                        name:'price'
+                        name:'price',
+                        placeHolder: '不能输入哦'
                     },
                     {
                         xtype: 'numberfield',
@@ -92,7 +96,8 @@ Ext.define('Feed.view.AddFormView', {
                         labelWidth: '35%',
                         readOnly: true,
                         id:'amountFieldId',
-                        name:'amount'
+                        name:'amount',
+                        placeHolder: '不能输入哦'
                     },{
                         xtype:'hiddenfield',
                         name:'test',
@@ -103,6 +108,7 @@ Ext.define('Feed.view.AddFormView', {
             {
                 xtype: 'container',
                 layout: 'hbox',
+                margin:'.5em .5em .5em',
                 items: [
                     {
                         xtype: 'spacer'
@@ -112,8 +118,8 @@ Ext.define('Feed.view.AddFormView', {
                         height: 40,
                         ui: 'decline',
                         width: '35%',
-                        icon: 'true',
-                        iconCls: 'delete',
+                    //    icon: 'true',
+                    //    iconCls: 'delete',
                         text: '清空',
                         id:'clearBtnId'
                     },
@@ -125,11 +131,20 @@ Ext.define('Feed.view.AddFormView', {
                         height: 40,
                         ui: 'confirm',
                         width: '55%',
-                        icon: 'true',
-                        iconCls: 'add',
+                    //    icon: 'true',
+                    //    iconCls: 'add',
                         text: '加入购物车',
                         id:'addCarBtnId'
                     },
+                    {
+                        xtype: 'spacer'
+                    }
+                ]
+            },
+            {
+                xtype: 'container',
+                layout: 'hbox',
+                items: [
                     {
                         xtype: 'spacer'
                     }

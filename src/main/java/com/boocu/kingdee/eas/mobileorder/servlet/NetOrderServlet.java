@@ -39,21 +39,24 @@ public class NetOrderServlet extends HttpServlet {
             vo.setAmount(new BigDecimal(100.00 * i));
             vo.setAskArriveDate(new Date());
             vo.setBillStatus(1);
-            if(1%2==0)
-            vo.setBillStatusDesc("审核");
-            else
-            vo.setBillStatusDesc("完成");
+            if(i%2==0) {
+                vo.setBillStatusDesc("审核");
+                vo.setIsFightBack(true);
+            }else {
+                vo.setBillStatusDesc("完成");
+                vo.setIsFightBack(false);
+            }
 
             vo.setBizDate(new Date());
             vo.setChannelVO(new ChannelVO(String.valueOf(i + 1), "渠道A"));
 
-            vo.setIsFightBack(false);
+//            vo.setIsFightBack(false);
 
             vo.setNumber("单据编号" + i);
             vo.setQty(new BigDecimal(23 * i));
             vo.setSaleOrgUnitVO(new SaleOrgUnitVO("afbd", "dfasdfasdf"));
-            vo.setCustomerVO(new CustomerVO("dfsa","fadsfasfasd"));
-
+            vo.setCustomerVO(new CustomerVO("dfsa", "fadsfasfasd"));
+            vo.setId(String.valueOf(i));
             cars.add(vo);
         }
 

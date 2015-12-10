@@ -75,7 +75,7 @@ Ext.define('Feed.view.TabPanel', {
             {
                 xtype: 'container',
                 title: '购物车',
-                iconCls: 'home',
+                iconCls: 'compose',
                 id: 'shoppingCarTab',
                 layout: 'fit',
                 items: [
@@ -96,7 +96,7 @@ Ext.define('Feed.view.TabPanel', {
                                     align: 'right',
                                     id: 'submitCarsBtn',
                                     ui: 'action',
-                                    iconCls: 'confirm',
+                                    iconCls: 'download',
                                     text: '',
                                     handler:function(){
                                       Ext.getStore("ShoppingCarStoreId").loadCarItems();
@@ -122,7 +122,7 @@ Ext.define('Feed.view.TabPanel', {
                             {
                                 xtype: 'AddFormView',
                                 id: 'AddFormViewId',
-                                title: '添加购物车'
+                                title: '添加商品'
                             }
                         ]
                         //,

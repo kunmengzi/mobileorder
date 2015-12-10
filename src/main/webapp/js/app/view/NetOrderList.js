@@ -26,16 +26,23 @@ Ext.define('Feed.view.NetOrderList', {
         id: 'NetOrderListId',
         store: 'NetOrderStoreId',
         itemTpl: [
-            '<div>',
-            '编号：{number}   业务日期：{bizDate} <br>',
-            '订购数量：{qty}  订购金额:{amount}<br>',
-            '要求到货日期：{askArriveDate}  订单状态:{billStatusDesc} 是否打回:{isFightBack}<br>',
-            '经销商：{customerVO.name}   销售组织：{saleOrgUnitVO.name} <br>',
-            '</div>',
-            '<div>',
-            '<input type=\'button\' value=\'del\'/>',
-            '    </div>',
-            ''
+            '<table style="font-size: small;" width="100%">',
+            '<tr style="background-color:yellowgreen;" width="100%"><td colspan="2">{number}</td></tr>',
+            '<tr>' +
+                '<td width="85%">',
+                    '<table>',
+                        '<tr><td align="right" width="45%">业务日期：</td><td width="55%">{[values.bizDate.toLocaleTimeString()]}</td></tr>',
+                        '<tr><td align="right">金额数量：</td><td>￥{amount} &nbsp; ({qty}) </td></tr>',
+                        '<tr><td align="right">要货日期：</td><td>{[values.askArriveDate.toLocaleDateString()]}</td></tr>',
+                        '<tr><td align="right">单据状态：</td><td>{billStatusDesc}<tpl if="isFightBack">（打回）</tpl></td></tr>',
+                    '</table>',
+                '</td>' +
+                '<td width="15%" align="center" valign="center"><a href="javascript:void(0);" onclick="Ext.getCmp(\'NetOrderListId\').abc({id});return false;"> > </a></td>',
+            '</tr></table>',
         ]
+    },
+
+    abc:function(ee){
+        alert(ee);
     }
 });
