@@ -34,7 +34,7 @@ Ext.define('Feed.model.NetOrderModel', {
                 name: 'bizDate',
                 type: 'date',
                 //convert:this.long2Date
-                dateFormat:'timestamp'
+                dateFormat:'time'
             },
             {
                 name: 'qty'

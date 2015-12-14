@@ -46,7 +46,7 @@ Ext.define('Feed.view.TabPanel', {
                 items: [
                     {
                         xtype: 'navigationview',
-                        id: 'netOrdersNav',
+                        id: 'netOrdersNavId',
                         useTitleForBackButtonText: true,
                         items: [
                             {
@@ -59,7 +59,7 @@ Ext.define('Feed.view.TabPanel', {
                                 {
                                     xtype: 'button',
                                     align: 'right',
-                                    id: 'refreshBtn',
+                                    id: 'refreshBtnId',
                                     ui: 'action',
                                     iconCls: 'refresh',
                                     text: '',

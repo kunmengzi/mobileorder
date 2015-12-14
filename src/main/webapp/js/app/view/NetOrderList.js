@@ -29,20 +29,24 @@ Ext.define('Feed.view.NetOrderList', {
             '<table style="font-size: small;" width="100%">',
             '<tr style="background-color:yellowgreen;" width="100%"><td colspan="2">{number}</td></tr>',
             '<tr>' +
-                '<td width="85%">',
+                '<td width="90%">',
                     '<table>',
-                        '<tr><td align="right" width="45%">业务日期：</td><td width="55%">{[values.bizDate.toLocaleTimeString()]}</td></tr>',
+                        '<tr><td align="right" width="45%">业务日期：</td><td width="55%">{[values.bizDate.toLocaleDateString()]}</td></tr>',
                         '<tr><td align="right">金额数量：</td><td>￥{amount} &nbsp; ({qty}) </td></tr>',
                         '<tr><td align="right">要货日期：</td><td>{[values.askArriveDate.toLocaleDateString()]}</td></tr>',
                         '<tr><td align="right">单据状态：</td><td>{billStatusDesc}<tpl if="isFightBack">（打回）</tpl></td></tr>',
                     '</table>',
                 '</td>' +
-                '<td width="15%" align="center" valign="center"><a href="javascript:void(0);" onclick="Ext.getCmp(\'NetOrderListId\').abc({id});return false;"> > </a></td>',
+                '<td width="10%" align="center" valign="center"> > </td>',
             '</tr></table>',
-        ]
-    },
-
-    abc:function(ee){
-        alert(ee);
+        ],
+        loadingText:'加载中...',
+        items: [{
+            xtype: 'button',
+            scrollDock: 'bottom',
+            docked: 'bottom',
+            text: '加载更多数据',
+            id:'moreBtnId'
+        }]
     }
 });

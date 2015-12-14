@@ -30,14 +30,15 @@ Ext.define('Feed.controller.NetOrderController', {
 
         refs: {
             //postsNav: '#postsNav',
-            //itemList: '#itemList'
+            netOrderList: '#NetOrderListId',
+            refreshBtn:'#refreshBtnId'
         },
 
         control: {
-            //"itemList": {
-            //    activate: 'onItemsListActivate',
-            //    itemtap: 'onItemsListItemTap'
-            //}
+            "netOrderList": {
+                itemtap: 'onItemsListItemTap',
+                show:'onNetOrderListShow'
+            }
         }
     },
 
@@ -45,13 +46,33 @@ Ext.define('Feed.controller.NetOrderController', {
     //    this.getApplication().fireEvent('updateNav');
     //},
     //
-    //onItemsListItemTap: function(dataview, index, target, record, e, eOpts) {
-    //    var story = Ext.create('widget.postsstory',{
-    //        title: record.get('title')
-    //    });
-    //    story.setData(record.data);
-    //    this.getPostsNav().push(story);
-    //},
+
+    openDetailed:false,
+
+    onItemsListItemTap: function(dataview, index, target, record, e, eOpts) {
+        if(!record || !record.id || this.openDetailed){
+            return ;
+        }
+
+        this.openDetailed = true;
+
+        //弹出新窗口
+        var detailPanel = new Feed.view.NetOrderDetail({
+            title: '订单详情'
+        });
+        detailPanel.setRecord(record);
+        Ext.getCmp('netOrdersNavId').push(detailPanel);
+        this.getRefreshBtn().hide();
+    },
+
+    onNetOrderListShow: function(component, eOpts) {
+        if(!this.openDetailed){
+            return ;
+        }
+
+        this.openDetailed = false;
+        this.getRefreshBtn().show();
+    },
 
     launch: function() {
         this.loadItemsOnFeedLoad();

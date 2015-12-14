@@ -48,7 +48,8 @@ Ext.application({
         'TabPanel',
         'ShoppingCarList',
         'NetOrderList',
-        'AddFormView'
+        'AddFormView',
+        'NetOrderDetail'
     ],
     controllers: [
         'ShoppingCarController',

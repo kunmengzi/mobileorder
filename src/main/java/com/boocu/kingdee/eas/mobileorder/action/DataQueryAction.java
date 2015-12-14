@@ -5,7 +5,7 @@ import javax.servlet.http.HttpServletRequest;
 /**
  * Created by jordan on 15/12/6.
  */
-public class DataQueryAction extends BaseMobileAction{
+public class DataQueryAction {
 
     /**
      * 查询物料分组
