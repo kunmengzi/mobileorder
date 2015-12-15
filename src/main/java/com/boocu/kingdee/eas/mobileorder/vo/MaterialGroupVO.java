@@ -9,4 +9,8 @@ public class MaterialGroupVO extends BaseVO {
 
     //只需查询出网上订单渠道的分组
     //constant
+
+    public MaterialGroupVO(){
+        super();
+    }
 }

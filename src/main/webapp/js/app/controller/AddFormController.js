@@ -82,16 +82,30 @@ Ext.define('Feed.controller.AddFormController', {
     },
 
     measureUnitChange:function(comp,newVal,oldVal,opts){
+        if(!newVal || newVal=="0"){
+            return false;
+        }
+
         console.log('measureUnit change ..........')
     },
 
     materialChange:function(comp,newVal,oldVal,opts){
+        if(!newVal || newVal=="0"){
+            Ext.getStore("MeasureUnitStoreId").removeAll();
+            return ;
+        }
+
         Ext.getStore("MeasureUnitStoreId").loadMeasureUnit(newVal);
         //comp.getRecord().getData().code;
         this.getPriceField().setValue(comp.getRecord().getData().id);
     },
 
     materialTypeChange:function(comp,newVal,oldVal,opts){
+        if(!newVal || newVal=="0"){
+            Ext.getStore("MaterialStoreId").removeAll();
+            return ;
+        }
+
         Ext.getStore("MaterialStoreId").loadMaterials(newVal);
     },
 

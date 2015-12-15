@@ -5,4 +5,7 @@ package com.boocu.kingdee.eas.mobileorder.vo;
  */
 public class MeasureUnitVO extends BaseVO {
 
+    public MeasureUnitVO() {
+        super();
+    }
 }

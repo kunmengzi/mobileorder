@@ -1,6 +1,7 @@
 package com.boocu.kingdee.eas.mobileorder.servlet;
 
 import com.boocu.kingdee.eas.mobileorder.vo.MaterialVO;
+import com.boocu.kingdee.eas.mobileorder.vo.MeasureUnitVO;
 import com.boocu.kingdee.eas.mobileorder.vo.ShoppingCarVO;
 import com.boocu.kingdee.eas.mobileorder.vo.JsonListResult;
 
@@ -38,14 +39,21 @@ public class CarItemListServlet  extends HttpServlet {
         List<ShoppingCarVO> cars = new ArrayList<ShoppingCarVO>();
         for(int i=0; i<count; i++){
             ShoppingCarVO vo = new ShoppingCarVO();
-           vo.setId(String.valueOf(i+1));
+           vo.setId(String.valueOf(i + 1));
             vo.setQty(new BigDecimal(234 * i));
             vo.setAmount(new BigDecimal(230 * i));
             vo.setChannel("渠道名称 ");
             vo.setPrice(new BigDecimal(133));
             vo.setShopDate(new Date());
             vo.setSaleOrgUnitId("dsafsdfasdfas");
-            vo.setMaterialVO(new MaterialVO("dfaf","dfasdf"));
+            MaterialVO material = new MaterialVO();
+            material.setId(String.valueOf(i));
+            material.setName(String.valueOf(i));
+            vo.setMaterialVO(material);
+            MeasureUnitVO unit = new MeasureUnitVO();
+            unit.setId(String.valueOf(i));
+            unit.setName(String.valueOf(i));
+            vo.setMeasureUnitVO(unit);
 
             cars.add(vo);
         }

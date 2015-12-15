@@ -30,15 +30,19 @@ Ext.define('Feed.controller.ShoppingCarController', {
 
         refs: {
             //postsNav: '#postsNav',
-            //itemList: '#itemList'
+            shoppingCarList: '#ShoppingCarListId'
         },
 
         control: {
-            //"itemList": {
-            //    activate: 'onItemsListActivate',
-            //    itemtap: 'onItemsListItemTap'
-            //}
+            "shoppingCarList": {
+                delEvent: 'onItemsDeleteAction'
+            }
         }
+    },
+
+
+    onItemsDeleteAction:function(id){
+      alert('hre:' + id);
     },
 
     //onItemsListActivate: function(newActiveItem, container, oldActiveItem, eOpts) {
@@ -83,19 +87,7 @@ Ext.define('Feed.controller.ShoppingCarController', {
 
     },
 
-    onUpdateNav: function() {
-        var self = this;
-        // ugly hack, so that this happens after title is internally set by back state stack
-        //Ext.defer(function(){
-        //    var title = self.getItemList().title;
-        //    self.getPostsNav().getNavigationBar().setTitle(title);
-        //},500);
-    },
-
     init: function(application) {
-        application.on([
-        { event: 'updateNav', fn: this.onUpdateNav, scope: this }
-        ]);
     }
 
 });

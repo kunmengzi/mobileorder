@@ -9,8 +9,12 @@ import java.io.Serializable;
  */
 public class CoreVO implements Serializable {
 
-
     private String id;
+
+    public CoreVO() {
+        super();
+        setId("0");
+    }
 
     public String getId() {
         return id;

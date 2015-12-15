@@ -12,6 +12,10 @@ public class BaseVO extends CoreVO{
     private String name;
     private String number;
 
+    public BaseVO() {
+        super();
+    }
+
     public String getName() {
         return name;
     }

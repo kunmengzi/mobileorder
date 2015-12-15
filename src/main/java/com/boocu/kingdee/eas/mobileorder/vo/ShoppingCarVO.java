@@ -8,7 +8,6 @@ import java.util.Date;
  */
 public class ShoppingCarVO extends CoreVO {
 
-
     /***
      * 商品编码
      * 商品名称

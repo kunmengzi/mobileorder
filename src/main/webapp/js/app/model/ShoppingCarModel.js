@@ -43,18 +43,21 @@ Ext.define('Feed.model.ShoppingCarModel', {
             {
                 //mapping: 'publishedDate',
                 type: 'date',
-                name: 'shopDate'
+                name: 'shopDate',
+                dateFormat:'time'
             },
             {
                 name: 'saleOrgUnitId'
-            },{
+            },
+            {
                 mapping:"measureUnitVO.id",
                 name:"measureUnitId"
             },{
                 mapping:"measureUnitVO.name",
                 name:"measureUnitName"
-            },{
-                mapping:"materialVO.id",
+            },
+            {
+                    mapping:"materialVO.id",
                 name:"materialId"
             },{
                 mapping:"materialVO.name",

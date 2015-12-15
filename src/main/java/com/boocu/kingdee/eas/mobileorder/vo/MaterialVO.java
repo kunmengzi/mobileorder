@@ -11,12 +11,7 @@ public class MaterialVO extends BaseVO {
     private String model;
 
     public MaterialVO() {
-    }
-
-    public MaterialVO(String id,String name) {
-        this();
-        setId(id);
-        setName(name);
+        super();
     }
 
     public String getModel() {

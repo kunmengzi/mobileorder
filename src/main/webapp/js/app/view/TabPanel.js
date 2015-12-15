@@ -96,8 +96,8 @@ Ext.define('Feed.view.TabPanel', {
                                     align: 'right',
                                     id: 'submitCarsBtn',
                                     ui: 'action',
-                                    iconCls: 'download',
-                                    text: '',
+                                    //iconCls: 'download',
+                                    text: '下单',
                                     handler:function(){
                                       Ext.getStore("ShoppingCarStoreId").loadCarItems();
                                     }

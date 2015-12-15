@@ -50,7 +50,7 @@ Ext.define('Feed.view.AddFormView', {
                         valueField:'id',
                         store:'MaterialStoreId',
                         id:'materialSelectId',
-                        placeHolder:'需下单商品',
+                        placeHolder:'请先选择类目',
                         name:'material'
                     },
                     {
@@ -58,7 +58,7 @@ Ext.define('Feed.view.AddFormView', {
                         label: '单位',
                         labelWidth: '35%',
                         required: true,
-                        placeHolder: '可更改',
+                        placeHolder: '请先选择商品',
                         displayField:'name',
                         valueField:'id',
                         store:'MeasureUnitStoreId',

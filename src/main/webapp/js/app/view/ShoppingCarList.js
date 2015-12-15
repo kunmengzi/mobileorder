@@ -26,16 +26,18 @@ Ext.define('Feed.view.ShoppingCarList', {
         id: 'ShoppingCarListId',
         store: 'ShoppingCarStoreId',
         itemTpl: [
-            '<div>',
-            '标题：{title}  <br>',
-            '作者：{author}<br>',
-            '时间：{date}<br>',
-            '</div>',
-            '<div>',
-            '<input type=\'button\' value=\'del\'/>',
-            '    </div>',
-            ''
-        ]
+            '<table style="font-size: small;" width="100%">',
+            '<tr style="background-color:yellowgreen;" width="100%">' +
+                '<td  width="80%"><b>{materialName}</b></td>' +
+                '<td width="20%" align="center"><a href="javascript:void(0)" onclick="Ext.getCmp(\'ShoppingCarListId\').fireEvent(\'delEvent\',{id});">删除</a></td>' +
+            '</tr></table><table>' +
+            '<tr><td align="right" width="45%">选购日期：</td><td width="55%">{[values.shopDate.toLocaleDateString()]}</td></tr>',
+            '<tr><td align="right">订单总额：</td><td>￥{amount}</td></tr>',
+            '<tr><td align="right">选购数量：</td><td>{qty} {measureName}</td></tr>',
+            '<tr><td align="right">商品价格：</td><td>{price}</td></tr>',
+            '<tr><td align="right">销售渠道：</td><td>{channel}</td></tr>',
+            '</table>',
+        ],
+        loadingText:'加载中...'
     }
-
 });
