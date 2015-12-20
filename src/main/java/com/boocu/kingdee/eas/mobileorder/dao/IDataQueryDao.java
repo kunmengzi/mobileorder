@@ -1,6 +1,8 @@
 package com.boocu.kingdee.eas.mobileorder.dao;
 
 import com.boocu.kingdee.eas.mobileorder.vo.MaterialGroupVO;
+import com.boocu.kingdee.eas.mobileorder.vo.MaterialVO;
+import com.boocu.kingdee.eas.mobileorder.vo.MeasureUnitVO;
 import com.boocu.kingdee.eas.mobileorder.vo.NetOrderVO;
 
 import java.util.List;
@@ -16,7 +18,47 @@ public interface IDataQueryDao {
      * @param standardId        分类标准ID
      * @return                  返回物料分组列表。如果无数据，返回空列表，不会为null.
      */
-    List<MaterialGroupVO> queryMaterialGroupByStandard(String standardId);
+    List<MaterialGroupVO> queryMaterialGroupByStandard(String standardId) throws Exception;
+
+
+    /**
+     * 根据物料分组和客户id，过滤物料数据
+     *
+     * @param groupId
+     * @param saleOrgUnitId
+     * @param  cuid
+     * @return
+     */
+    List<MaterialVO> queryMaterialByGroupAndSaleOrgUnit(String groupId, String saleOrgUnitId, String cuid) throws Exception;
+
+    /***
+     * 查询计量单位
+     *
+     * @param materialId
+     * @return
+     * @throws Exception
+     */
+    List<MeasureUnitVO> queryMeausreUnitByMaterialId(String materialId) throws Exception;
+
+    /**
+     * 获取物料
+     *
+     * @param materialId
+     * @param cuId
+     * @return
+     * @throws Exception
+     */
+    MaterialVO getMaterialVO(String materialId,String cuId) throws  Exception;
+
+    /**
+     * 获取计量单位
+     *
+     * @param materialId
+     * @param measureUnitId
+     * @return
+     * @throws Exception
+     */
+    MeasureUnitVO getMeasureUnitVO(String materialId,String measureUnitId) throws Exception;
 
     /**
      * 查询网络订单

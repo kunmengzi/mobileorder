@@ -34,6 +34,10 @@ Ext.define('Feed.model.MaterialModel', {
             },
             {
                 name: 'model'
+            },{
+                name:'unitId'
+            },{
+                name:'price'
             }
         ]
     }
