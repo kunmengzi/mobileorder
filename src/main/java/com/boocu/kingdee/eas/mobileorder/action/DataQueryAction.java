@@ -11,6 +11,7 @@ import com.kingdee.eas.mobilecommon.struts2.action.BaseMobileAction;
 import com.kingdee.eas.util.app.ContextUtil;
 import com.kingdee.util.StringUtils;
 import net.sf.json.JSONObject;
+import org.apache.log4j.Logger;
 import org.apache.struts2.ServletActionContext;
 
 import javax.servlet.http.HttpServletRequest;
@@ -28,16 +29,16 @@ import java.util.Map;
  */
 public class DataQueryAction extends BaseMobileAction{
 
-    //todo 日志信息
-//    private static final Logger
+    //日志信息
+    private static final Logger logger = Logger.getLogger(DataQueryAction.class);
 
     private static final String ATTR_KEY_CONTEXT = "XTContext";
     private static final String CONTENT_TYPE_JSON = "application/json;charset=utf-8";
     private static final String HEADER_KEY_CACHE_CONTROL = "cache-control";
     private static final String HEADER_VALUE_NO_CACHE = "no-cache";
 
-    //todo T_BD_MaterialGroupStandard
-    private static final String MATERIAL_GROUP_STANDARD_ID = "";
+    /** T_BD_MaterialGroupStandard -- 网上订货分类标准 **/
+    private static final String MATERIAL_GROUP_STANDARD_ID = "Cqw8RgA/S0W0WYWqpA5On5eb4R8=";
 
     private IDataQueryDao dataQueryDao;
 
@@ -69,18 +70,18 @@ public class DataQueryAction extends BaseMobileAction{
         String materialGroupId = request.getParameter("materialGroupId");
 
         //todo 获取客户ID
-        SaleOrgUnitInfo saleUnit = ContextUtil.getCurrentSaleUnit(context);
+        //当前登录用户为客户？？
+        String customerId = null;
 
         //CUID
         CtrlUnitInfo cu = ContextUtil.getCurrentCtrlUnit(context);
 
         if(!StringUtils.isEmpty(materialGroupId)){
-            //todo 获取物料的价格
-            List<MaterialVO> result = dataQueryDao.queryMaterialByGroupAndSaleOrgUnit(materialGroupId,
-                    saleUnit.getId().toString(), cu.getId().toString());
+            //获取物料列表
+            List<MaterialVO> result = dataQueryDao.queryMaterialByGroupAndSaleOrgUnit(materialGroupId,customerId, cu.getId().toString());
             write(result);
         }else{
-            //todo 日志信息
+            logger.warn("获取物料数据失败。物料组ID为空。materialGroupId=" + materialGroupId);
         }
 
         return null;
@@ -101,7 +102,7 @@ public class DataQueryAction extends BaseMobileAction{
             List<MeasureUnitVO> result = dataQueryDao.queryMeausreUnitByMaterialId(materialId);
             write(result);
         }else{
-            //todo 日志信息
+            logger.warn("获取计量单位数据失败。物料ID为空。materialId=" + materialId);
         }
 
         return null;
@@ -120,7 +121,7 @@ public class DataQueryAction extends BaseMobileAction{
         String measureUnitId = request.getParameter("measureUnitId");
 
         if(!StringUtils.isEmpty(materialId) && !StringUtils.isEmpty(measureUnitId)){
-            //todo 计算价格、金额
+            //计算价格、金额
             CtrlUnitInfo cu = ContextUtil.getCurrentCtrlUnit(context);
             MaterialVO materialVO = dataQueryDao.getMaterialVO(materialId, cu.getId().toString());
 
@@ -147,11 +148,11 @@ public class DataQueryAction extends BaseMobileAction{
                     }
                 }
             }else{
-                //todo 日志信息
+                logger.warn("计算价格失败，获取不到计量单位数据。materialId=" + materialId + ";measureUnitId=" + measureUnitId);
             }
 
         }else{
-            //todo 日志信息
+            logger.warn("计算价格失败，获取不到计量单位数据。物料ID为空或者计量单位ID为空。materialId=" + materialId + ";measureUnitId=" + measureUnitId);
         }
 
         return null;

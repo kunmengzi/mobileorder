@@ -20,16 +20,15 @@ public interface IDataQueryDao {
      */
     List<MaterialGroupVO> queryMaterialGroupByStandard(String standardId) throws Exception;
 
-
     /**
      * 根据物料分组和客户id，过滤物料数据
      *
      * @param groupId
-     * @param saleOrgUnitId
+     * @param customerId
      * @param  cuid
      * @return
      */
-    List<MaterialVO> queryMaterialByGroupAndSaleOrgUnit(String groupId, String saleOrgUnitId, String cuid) throws Exception;
+    List<MaterialVO> queryMaterialByGroupAndSaleOrgUnit(String groupId, String customerId, String cuid) throws Exception;
 
     /***
      * 查询计量单位
