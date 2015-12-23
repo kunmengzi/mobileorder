@@ -1,14 +1,8 @@
 package com.boocu.kingdee.eas.mobileorder.action;
 
 import com.boocu.kingdee.eas.mobileorder.dao.IDataQueryDao;
-import com.boocu.kingdee.eas.mobileorder.vo.MaterialGroupVO;
-import com.boocu.kingdee.eas.mobileorder.vo.MaterialVO;
-import com.boocu.kingdee.eas.mobileorder.vo.MeasureUnitVO;
 import com.kingdee.bos.Context;
-import com.kingdee.eas.basedata.org.CtrlUnitInfo;
 import com.kingdee.eas.mobilecommon.struts2.action.BaseMobileAction;
-import com.kingdee.eas.util.app.ContextUtil;
-import com.kingdee.util.StringUtils;
 import net.sf.json.JSONObject;
 import org.apache.log4j.Logger;
 import org.apache.struts2.ServletActionContext;
@@ -17,11 +11,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.math.BigDecimal;
-import java.math.RoundingMode;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 
 /**
  * Created by jordan on 15/12/6.

@@ -66,6 +66,13 @@ Ext.define('Feed.view.TabPanel', {
                                     handler:function(){
                                         Ext.getStore("NetOrderStoreId").loadList();
                                     }
+                                },
+                                {
+                                    xtype: 'button',
+                                    align: 'right',
+                                    //id: 'refreshBtnId',
+                                    ui: 'confirm',
+                                    iconCls: 'delete'
                                 }
                             ]
                         }

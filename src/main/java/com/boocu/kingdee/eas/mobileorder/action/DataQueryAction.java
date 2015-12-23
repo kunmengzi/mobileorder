@@ -6,7 +6,6 @@ import com.boocu.kingdee.eas.mobileorder.vo.MaterialVO;
 import com.boocu.kingdee.eas.mobileorder.vo.MeasureUnitVO;
 import com.kingdee.bos.Context;
 import com.kingdee.eas.basedata.org.CtrlUnitInfo;
-import com.kingdee.eas.basedata.org.SaleOrgUnitInfo;
 import com.kingdee.eas.mobilecommon.struts2.action.BaseMobileAction;
 import com.kingdee.eas.util.app.ContextUtil;
 import com.kingdee.util.StringUtils;

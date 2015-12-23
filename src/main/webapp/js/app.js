@@ -19,7 +19,7 @@ Ext.Loader.setConfig({
 });
 
 var CfgConst=new Object();
-CfgConst.host='192.168.2.102';
+CfgConst.host='192.168.1.109';
 CfgConst.port=8080;
 
 Ext.application({
