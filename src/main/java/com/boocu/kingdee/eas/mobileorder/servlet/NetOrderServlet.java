@@ -1,13 +1,12 @@
 package com.boocu.kingdee.eas.mobileorder.servlet;
 
+import com.boocu.kingdee.eas.mobileorder.dao.IDataQueryDao;
 import com.boocu.kingdee.eas.mobileorder.vo.*;
+import com.kingdee.bos.Context;
+import com.kingdee.eas.basedata.scm.sd.channel.ChannelBaseInfo;
+import com.kingdee.eas.util.app.ContextUtil;
 
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import java.io.IOException;
-import java.io.PrintWriter;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Date;
@@ -16,20 +15,22 @@ import java.util.List;
 /**
  * Created by jordan on 2015/11/30.
  */
-public class NetOrderServlet extends HttpServlet {
+public class NetOrderServlet extends AbstractOrderServlet {
 
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp)
-            throws ServletException, IOException
-    {
-        this.doPost(req,resp);
+    @Override
+    protected Object getData(IDataQueryDao dataQueryDao, HttpServletRequest req) throws Exception {
+        Context ctx = getContext(req);
+        String userId = ContextUtil.getCurrentUserInfo(ctx).getId().toString();
+        String saleOrgUnitId = ContextUtil.getCurrentSaleUnit(ctx).getId().toString();
+
+        ChannelBaseInfo channelInfo = getChannelBaseInfo(ctx);
+        String channelId = channelInfo==null?null:channelInfo.getId().toString();
+
+        return dataQueryDao.queryNetOrderList(userId, saleOrgUnitId, channelId);
     }
 
-    public NetOrderServlet() {
-    }
-
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp)
-            throws ServletException, IOException
-    {
+    @Override
+    protected Object getMockData(IDataQueryDao dataQueryDao, HttpServletRequest req) throws Exception {
         long a =  System.currentTimeMillis();
         int count =(int)(a%10);
 
@@ -60,22 +61,6 @@ public class NetOrderServlet extends HttpServlet {
             cars.add(vo);
         }
 
-        resp.setCharacterEncoding("UTF-8");
-        resp.setContentType("application/json; charset=utf-8");
-        PrintWriter out = null;
-        try {
-
-            JsonListResult<NetOrderVO> jsonResult  = new JsonListResult<NetOrderVO>();
-            jsonResult.setData(cars);
-
-            out = resp.getWriter();
-            out.append(jsonResult.toJsonString());
-        } catch (IOException e) {
-            e.printStackTrace();
-        } finally {
-            if (out != null) {
-                out.close();
-            }
-        }
+        return cars;
     }
 }

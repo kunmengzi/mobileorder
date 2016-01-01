@@ -1,61 +1,79 @@
 <!DOCTYPE web-app PUBLIC
- "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
- "http://java.sun.com/dtd/web-app_2_3.dtd" >
+        "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+        "http://java.sun.com/dtd/web-app_2_3.dtd" >
 
 <web-app>
-  <display-name>Archetype Created Web Application</display-name>
+    <display-name>Archetype Created Web Application</display-name>
 
-  <servlet>
-    <servlet-name>carItemListServlet</servlet-name>
-    <servlet-class>com.boocu.kingdee.eas.mobileorder.servlet.CarItemListServlet</servlet-class>
-  </servlet>
-  <servlet>
-    <servlet-name>materialTypeServlet</servlet-name>
-    <servlet-class>com.boocu.kingdee.eas.mobileorder.servlet.MaterialTypeServlet</servlet-class>
-  </servlet>
-  <servlet>
-    <servlet-name>materialServlet</servlet-name>
-    <servlet-class>com.boocu.kingdee.eas.mobileorder.servlet.MaterialServlet</servlet-class>
-  </servlet>
-  <servlet>
-    <servlet-name>measureUnitServlet</servlet-name>
-    <servlet-class>com.boocu.kingdee.eas.mobileorder.servlet.MeasureUnitServlet</servlet-class>
-  </servlet>
-  <servlet>
-    <servlet-name>addCarServlet</servlet-name>
-    <servlet-class>com.boocu.kingdee.eas.mobileorder.servlet.AddCarServlet</servlet-class>
-  </servlet>
+    <servlet>
+        <servlet-name>carItemListServlet</servlet-name>
+        <servlet-class>com.boocu.kingdee.eas.mobileorder.servlet.ShoppingCartRecordServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>materialTypeServlet</servlet-name>
+        <servlet-class>com.boocu.kingdee.eas.mobileorder.servlet.MaterialGroupServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>materialServlet</servlet-name>
+        <servlet-class>com.boocu.kingdee.eas.mobileorder.servlet.MaterialServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>measureUnitServlet</servlet-name>
+        <servlet-class>com.boocu.kingdee.eas.mobileorder.servlet.MeasureUnitServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>addCarServlet</servlet-name>
+        <servlet-class>com.boocu.kingdee.eas.mobileorder.servlet.AddCarServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>delCarServlet</servlet-name>
+        <servlet-class>com.boocu.kingdee.eas.mobileorder.servlet.DelCarServlet</servlet-class>
+    </servlet>
     <servlet>
         <servlet-name>netOrderServlet</servlet-name>
         <servlet-class>com.boocu.kingdee.eas.mobileorder.servlet.NetOrderServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>MaterialPriceServlet</servlet-name>
+        <servlet-class>com.boocu.kingdee.eas.mobileorder.servlet.MaterialPriceServlet</servlet-class>
+    </servlet>
 
-  <servlet-mapping>
-    <servlet-name>carItemListServlet</servlet-name>
-    <url-pattern>/d/q/shoppingCarList.json</url-pattern>
-  </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>carItemListServlet</servlet-name>
+        <url-pattern>/mobile/mborder/q/shoppingCarList.json</url-pattern>
+    </servlet-mapping>
 
-  <servlet-mapping>
-    <servlet-name>materialTypeServlet</servlet-name>
-    <url-pattern>/d/q/materialGroup.json</url-pattern>
-  </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>materialTypeServlet</servlet-name>
+        <url-pattern>/mobile/mborder/q/materialGroup.json</url-pattern>
+    </servlet-mapping>
 
-  <servlet-mapping>
-    <servlet-name>materialServlet</servlet-name>
-    <url-pattern>/d/q/material.json</url-pattern>
-  </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>materialServlet</servlet-name>
+        <url-pattern>/mobile/mborder/q/material.json</url-pattern>
+    </servlet-mapping>
 
-  <servlet-mapping>
-    <servlet-name>measureUnitServlet</servlet-name>
-    <url-pattern>/d/q/measureUnit.json</url-pattern>
-  </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>measureUnitServlet</servlet-name>
+        <url-pattern>/mobile/mborder/q/measureUnit.json</url-pattern>
+    </servlet-mapping>
 
-  <servlet-mapping>
-    <servlet-name>addCarServlet</servlet-name>
-    <url-pattern>/d/s/addCar.json</url-pattern>
-  </servlet-mapping>
     <servlet-mapping>
         <servlet-name>netOrderServlet</servlet-name>
-        <url-pattern>/d/q/netOrder.json</url-pattern>
+        <url-pattern>/mobile/mborder/q/netOrder.json</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>addCarServlet</servlet-name>
+        <url-pattern>/mobile/mborder/o/addCar.json</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>delCarServlet</servlet-name>
+        <url-pattern>/mobile/mborder/o/delCar.json</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>MaterialPriceServlet</servlet-name>
+        <url-pattern>/mobile/mborder/o/calPrice.json</url-pattern>
     </servlet-mapping>
 </web-app>

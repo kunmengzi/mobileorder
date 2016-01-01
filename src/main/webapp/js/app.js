@@ -22,6 +22,16 @@ var CfgConst=new Object();
 CfgConst.host='192.168.1.109';
 CfgConst.port=8080;
 
+CfgConst.materialGroupQueryUrl = "/mobile/mborder/q/materialGroup.json?mock=true";
+CfgConst.measureUnitQueryUrl = "/mobile/mborder/q/measureUnit.json?mock=true";
+CfgConst.materialQueryUrl = "/mobile/mborder/q/material.json?mock=true";
+CfgConst.shoppingCardQueryUrl = "/mobile/mborder/q/shoppingCarList.json?mock=true"
+CfgConst.netOrderQueryUrl = "/mobile/mborder/q/netOrder.json?mock=true"
+
+CfgConst.addCarUrl = "/mobile/mborder/o/addCar.json?mock=true";
+CfgConst.delCarUrl = "/mobile/mborder/o/delCar.json?mock=true";
+CfgConst.calPriceUrl = "/mobile/mborder/o/calPrice.json?mock=true";
+
 Ext.application({
 
     requires: [
@@ -34,7 +44,8 @@ Ext.application({
         'MaterialModel',
         'MeasureUnitModel',
         'CustomerModel',
-        'SaleOrgUnitModel'
+        'SaleOrgUnitModel',
+        "FormValidatorModel"
     ],
     stores: [
         'ShoppingCarStore',
@@ -42,7 +53,8 @@ Ext.application({
         'MaterialStore',
         'MeasureUnitStore',
         'AddFormStore',
-        'NetOrderStore'
+        'NetOrderStore',
+        'MaterialPriceStore'
     ],
     views: [
         'TabPanel',

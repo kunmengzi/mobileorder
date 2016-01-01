@@ -22,6 +22,11 @@ public class MaterialVO extends BaseVO {
      */
     private String unitId;
 
+    /**
+     * 物料组
+     */
+    private MaterialGroupVO materialGroupVO;
+
     public MaterialVO() {
         super();
     }
@@ -48,5 +53,13 @@ public class MaterialVO extends BaseVO {
 
     public void setUnitId(String unitId) {
         this.unitId = unitId;
+    }
+
+    public MaterialGroupVO getMaterialGroupVO() {
+        return materialGroupVO;
+    }
+
+    public void setMaterialGroupVO(MaterialGroupVO materialGroupVO) {
+        this.materialGroupVO = materialGroupVO;
     }
 }

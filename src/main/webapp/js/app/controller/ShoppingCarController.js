@@ -42,7 +42,29 @@ Ext.define('Feed.controller.ShoppingCarController', {
 
 
     onItemsDeleteAction:function(id){
-      alert('hre:' + id);
+        Ext.Msg.confirm("确认操作", "确认从购物车移除吗？", function(buttonId,value,opt){
+            if(buttonId=="no"){
+                return false;
+            }
+
+            Ext.Ajax.request({
+                url: CfgConst.delCarUrl,
+                params: {
+                    id:id
+                },
+                success: function(response){
+                    var result = Ext.JSON.decode(response.responseText);
+                    if(result && result.success){
+                        Ext.Msg.alert("操作成功",result.message);
+                        Ext.getStore("ShoppingCarStoreId").loadCarItems();
+                        return true;
+                    }else{
+                        Ext.Msg.alert("操作失败",result.message);
+                        return false;
+                    }
+                }
+            });
+        });
     },
 
     //onItemsListActivate: function(newActiveItem, container, oldActiveItem, eOpts) {

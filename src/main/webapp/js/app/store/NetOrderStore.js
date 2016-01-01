@@ -28,7 +28,7 @@ Ext.define('Feed.store.NetOrderStore', {
         storeId: 'NetOrderStoreId',
         proxy: {
             type: 'ajax',
-            url: "http://"+CfgConst.host+":"+CfgConst.port+"/d/q/netOrder.json",
+            url: CfgConst.netOrderQueryUrl,
             reader: {
                 type: 'json',
                 rootProperty: 'data'

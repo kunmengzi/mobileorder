@@ -1,7 +1,12 @@
 package com.boocu.kingdee.eas.mobileorder.servlet;
 
+import com.boocu.kingdee.eas.mobileorder.Constants;
+import com.boocu.kingdee.eas.mobileorder.dao.IDataQueryDao;
 import com.boocu.kingdee.eas.mobileorder.vo.JsonListResult;
 import com.boocu.kingdee.eas.mobileorder.vo.MeasureUnitVO;
+import com.kingdee.bos.Context;
+import com.kingdee.util.StringUtils;
+import org.apache.struts2.ServletActionContext;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -15,49 +20,43 @@ import java.util.List;
 /**
  * Created by jordan on 2015/11/30.
  */
-public class MeasureUnitServlet extends HttpServlet {
+public class MeasureUnitServlet extends AbstractOrderServlet {
 
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp)
-            throws ServletException, IOException
-    {
-        this.doPost(req,resp);
+    @Override
+    protected Object getData(IDataQueryDao dataQueryDao, HttpServletRequest req) throws Exception {
+        Context context = (Context) req.getSession().getAttribute(Constants.ATTR_KEY_CONTEXT);
+
+        String materialId = req.getParameter("materialId");
+        if (!StringUtils.isEmpty(materialId)) {
+            List<MeasureUnitVO> list = new ArrayList<MeasureUnitVO>();
+            list.add(new MeasureUnitVO());
+            List<MeasureUnitVO> result = dataQueryDao.queryMeausreUnitByMaterialId(materialId);
+            if (result != null) {
+                list.addAll(result);
+            }
+
+            return list;
+        } else {
+            logger.warn("获取计量单位数据失败。物料ID为空。materialId=" + materialId);
+            return null;
+        }
     }
 
-    public MeasureUnitServlet() {
-    }
-
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp)
-            throws ServletException, IOException
-    {
-        long a =  System.currentTimeMillis();
-        int count =(int)(a%10);
+    @Override
+    protected Object getMockData(IDataQueryDao dataQueryDao, HttpServletRequest req) throws Exception {
+        long a = System.currentTimeMillis();
+        int count = (int) (a % 10);
 
         List<MeasureUnitVO> cars = new ArrayList<MeasureUnitVO>();
         cars.add(new MeasureUnitVO());
-        for(int i=0; i<count; i++){
+        for (int i = 0; i < count; i++) {
             MeasureUnitVO item = new MeasureUnitVO();
-            item.setId(String.valueOf(i+1));
-            item.setName("名称"+String.valueOf(i+1));
-            item.setNumber("code" + String.valueOf(i+1));
+            item.setId(String.valueOf(i + 10));
+            item.setName("名称" + String.valueOf(i + 1));
+            item.setNumber("code" + String.valueOf(i + 1));
             cars.add(item);
         }
 
-        resp.setCharacterEncoding("UTF-8");
-        resp.setContentType("application/json; charset=utf-8");
-        PrintWriter out = null;
-        try {
-
-            JsonListResult<MeasureUnitVO> jsonResult  = new JsonListResult<MeasureUnitVO>();
-            jsonResult.setData(cars);
-
-            out = resp.getWriter();
-            out.append(jsonResult.toJsonString());
-        } catch (IOException e) {
-            e.printStackTrace();
-        } finally {
-            if (out != null) {
-                out.close();
-            }
-        }
+        return cars;
     }
 }

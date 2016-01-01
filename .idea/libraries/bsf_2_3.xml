@@ -1,0 +1,23 @@
+<component name="libraryTable">
+  <library name="bsf-2.3">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/lib/bsf-2.3.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/bsh-2.0b4.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/dwr.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/ezmorph-1.0.6.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/freemarker-2.3.16.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/javassist-3.7.ga.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/json-lib-2.4-jdk15.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/jsoup-1.5.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/mobileserver-common.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/mobileserver-ec.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/mobileserver-portal.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/mobileserver-wf-attachment-ec_fdc.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/mobileserver-wf.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/mobileserver-xt.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/struts2-json-plugin-2.2.1.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

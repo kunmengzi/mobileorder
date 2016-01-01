@@ -27,7 +27,7 @@ Ext.define('Feed.store.AddFormStore', {
         storeId: 'AddFormStoreId',
         proxy: {
             type: 'ajax',
-            url:"http://"+CfgConst.host+":"+CfgConst.port+"/d/q/carItemList.json",
+            url:CfgConst.addShoppingCarUrl,
             reader: {
                 type: 'json',
                 rootProperty: 'data'

@@ -28,7 +28,7 @@ Ext.define('Feed.store.MaterialStore', {
         storeId: 'MaterialStoreId',
         proxy: {
             type: 'ajax',
-            url: "http://"+CfgConst.host+":"+CfgConst.port+"/d/q/material.json",
+            url: CfgConst.materialQueryUrl,
             reader: {
                 type: 'json',
                 rootProperty: 'data'

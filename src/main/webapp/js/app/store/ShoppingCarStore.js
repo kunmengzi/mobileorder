@@ -27,7 +27,7 @@ Ext.define('Feed.store.ShoppingCarStore', {
         storeId: 'ShoppingCarStoreId',
         proxy: {
             type: 'ajax',
-            url: "http://"+CfgConst.host+":"+CfgConst.port+"/d/q/shoppingCarList.json",
+            url: CfgConst.shoppingCardQueryUrl,
             reader: {
                 type: 'json',
                 rootProperty: 'data'
@@ -35,10 +35,9 @@ Ext.define('Feed.store.ShoppingCarStore', {
         }
     },
 
-    loadCarItems: function(itemUrl, numItems) {
+    loadCarItems: function(numItems) {
         this.load({
             params:{
-            //    q: itemUrl,
                 num: numItems || 20
             }
         });

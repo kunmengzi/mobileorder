@@ -1,0 +1,47 @@
+<component name="libraryTable">
+  <library name="autoupdate">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/lib/autoupdate.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/bosframework.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/bsf.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/bsf-2.3.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/bsh-2.0b4.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/cache.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/classfile.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/common.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/commoneventservice.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/dwr.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/ezmorph-1.0.6.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/freemarker-2.3.16.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/invokeservice.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/javassist-3.7.ga.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/json-lib-2.4-jdk15.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/jsoup-1.5.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/kscript.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/kscripttool.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/ksql.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/lbdistributer.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/management.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/message.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/metadata.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/mobileserver-common.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/mobileserver-ec.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/mobileserver-portal.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/mobileserver-wf.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/mobileserver-wf-attachment-ec_fdc.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/mobileserver-xt.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/netfile.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/ormrpc.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/pubsub.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/security.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/struts2-core-2.1.8.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/struts2-json-plugin-2.2.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/struts2-spring-plugin-2.1.8.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/uimodel.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/webservice.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/workflowcommon.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

@@ -1,13 +1,12 @@
 package com.boocu.kingdee.eas.mobileorder.dao.impl;
 
 import com.boocu.kingdee.eas.mobileorder.dao.IDataQueryDao;
-import com.boocu.kingdee.eas.mobileorder.vo.MaterialGroupVO;
-import com.boocu.kingdee.eas.mobileorder.vo.MaterialVO;
-import com.boocu.kingdee.eas.mobileorder.vo.MeasureUnitVO;
-import com.boocu.kingdee.eas.mobileorder.vo.NetOrderVO;
+import com.boocu.kingdee.eas.mobileorder.vo.*;
+import com.kingdee.bos.BOSException;
 import com.kingdee.eas.mobilecommon.dao.CommonDao;
 
 import java.math.BigDecimal;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -18,11 +17,8 @@ import java.util.Map;
 public class DataQueryDaoImpl extends CommonDao implements IDataQueryDao{
 
     public List<MaterialGroupVO> queryMaterialGroupByStandard(String standardId) throws Exception {
-        String sql = "select fid,fname_l2,fnumber from t_bd_materialgroup where fgroupstandard = ? and flevel = 1 ";
-        //and fisleaf = 1";
-
         List<MaterialGroupVO> result = new ArrayList<MaterialGroupVO>();
-        List<Map<String, Object>> list = super.query(sql, new Object[]{standardId});
+        List<Map<String, Object>> list = super.query(MATERIAL_GROUP_QUERY, new Object[] { standardId });
         if(list!=null && list.size()>0){
             for(Map<String,Object> map:list){
                 MaterialGroupVO vo = new MaterialGroupVO();
@@ -37,15 +33,8 @@ public class DataQueryDaoImpl extends CommonDao implements IDataQueryDao{
     }
 
     public List<MaterialVO> queryMaterialByGroupAndSaleOrgUnit(String groupId, String customerId, String cuid) throws Exception {
-        //物料、物料基本价格、客户可销售物料
-        String sql = "select m.fid,m.fname_l2,m.fnumber,m.fmodel,mbp.fprice,mbp.funitid " +
-                 " from t_bd_material m inner join t_sd_materialbaseprice mbp on m.fid = mbp.fmaterialid "
-                +" inner join T_CHA_CustomersMR mr on mr.fmaterialId = m.fid "
-                +" where mbp.fcontrolunitid = ? and m.fmaterialgroupid = ? and m.fstatus = 1 "     //核准状态
-                +" and mr.fcustomerId = ? and mr.fstatus = 0  ";
-
         List<MaterialVO> result = new ArrayList<MaterialVO>();
-        List<Map<String, Object>> list = super.query(sql, new Object[]{cuid, groupId,customerId});
+        List<Map<String, Object>> list = super.query(MATERIAL_QUERY, new Object[]{cuid, groupId,customerId});
         if(list!=null && list.size()>0){
             for(Map<String, Object> map:list){
                 MaterialVO vo = new MaterialVO();
@@ -64,13 +53,8 @@ public class DataQueryDaoImpl extends CommonDao implements IDataQueryDao{
     }
 
     public List<MeasureUnitVO> queryMeausreUnitByMaterialId(String materialId) throws Exception {
-        String sql = " select u.fid as FUNITID,u.fname_l2 as FNAME,u.fnumber as FNUMBER,mmu.fid as FID,mmu.fisbaseunit AS FISBASEUNIT, "
-                + " mmu.fbaseconvsrate as FBASECONVSRATE,mmu.FmaterialId as FMATERIALID,mmu.fqtyprecision as FQTYPRECISION "
-                + " from T_bd_multimeasureUnit mmu inner join t_bd_measure u on mmu.fmeasureunitid = u.fid " +
-                  " where mmu.fmaterialId = ? ";
-
         List<MeasureUnitVO> result = new ArrayList<MeasureUnitVO>();
-        List<Map<String, Object>> list = super.query(sql, new Object[]{materialId});
+        List<Map<String, Object>> list = super.query(MEASURE_UNIT_QUERY, new Object[]{materialId});
         if(list!=null && list.size()>0){
             for(Map<String, Object> map:list){
                 MeasureUnitVO vo = new MeasureUnitVO();
@@ -91,13 +75,7 @@ public class DataQueryDaoImpl extends CommonDao implements IDataQueryDao{
     }
 
     public MaterialVO getMaterialVO(String materialId, String cuId) throws Exception {
-        //
-        String sql = "select m.fid,m.fname_l2,m.fnumber,m.fmodel,mbp.fprice,mbp.funitid " +
-                " from t_bd_material m inner join t_sd_materialbaseprice mbp on m.fid = mbp.fmaterialid "
-                +" where  m.fid = ? and mbp.fcontrolunitid = ? and m.fstatus = 1"     //核准状态
-                +" ";
-
-        List<Map<String, Object>> list = super.query(sql, new Object[]{materialId,cuId});
+        List<Map<String, Object>> list = super.query(MATERIAL_GET, new Object[]{materialId,cuId});
         if(list!=null && list.size()>0){
             for(Map<String, Object> map:list){
                 MaterialVO vo = new MaterialVO();
@@ -116,13 +94,8 @@ public class DataQueryDaoImpl extends CommonDao implements IDataQueryDao{
     }
 
     public MeasureUnitVO getMeasureUnitVO(String materialId, String measureUnitId) throws Exception {
-        String sql = " select u.fid as FUNITID,u.fname_l2 as FNAME,u.fnumber as FNUMBER,mmu.fid as FID,mmu.fisbaseunit AS FISBASEUNIT, "
-                + " mmu.fbaseconvsrate as FBASECONVSRATE,mmu.FmaterialId as FMATERIALID,mmu.fqtyprecision as FQTYPRECISION "
-                + " from T_bd_multimeasureUnit mmu inner join t_bd_measure u on mmu.fmeasureunitid = u.fid " +
-                " where mmu.fmaterialId = ? and mmu.fmeasureUnitId = ? ";
-
         List<MeasureUnitVO> result = new ArrayList<MeasureUnitVO>();
-        List<Map<String, Object>> list = super.query(sql, new Object[]{materialId,measureUnitId});
+        List<Map<String, Object>> list = super.query(MEASURE_UNIT_GET, new Object[]{materialId,measureUnitId});
         if(list!=null && list.size()>0){
             for(Map<String, Object> map:list){
                 MeasureUnitVO vo = new MeasureUnitVO();
@@ -151,6 +124,15 @@ public class DataQueryDaoImpl extends CommonDao implements IDataQueryDao{
                  " inner join T_ORG_SALE sale on bill.fsaleorgunitid = sale.fid "
                 +" where bill.fCustomerId = ? ";
 
+        return null;
+    }
+
+    public List<ShoppingCarVO> queryShoppingCarList(String userId, String saleOrgUnitId, String channelId) {
+        return null;
+    }
+
+    public List<NetOrderVO> queryNetOrderList(String userId, String saleOrgUnitId, String channelId)
+            throws BOSException, SQLException {
         return null;
     }
 }

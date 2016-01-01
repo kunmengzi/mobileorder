@@ -39,7 +39,7 @@ Ext.define('Feed.view.AddFormView', {
                         displayField:'name',
                         valueField:'id',
                         id:"materialTypeSelectId",
-                        name:'materialType'
+                        name:'materialGroup'
                     },
                     {
                         xtype: 'selectfield',
@@ -50,7 +50,7 @@ Ext.define('Feed.view.AddFormView', {
                         valueField:'id',
                         store:'MaterialStoreId',
                         id:'materialSelectId',
-                        placeHolder:'请先选择类目',
+                        placeHolder:'先选择类目',
                         name:'material'
                     },
                     {
@@ -58,7 +58,7 @@ Ext.define('Feed.view.AddFormView', {
                         label: '单位',
                         labelWidth: '35%',
                         required: true,
-                        placeHolder: '请先选择商品',
+                        placeHolder: '先选择商品',
                         displayField:'name',
                         valueField:'id',
                         store:'MeasureUnitStoreId',
@@ -71,7 +71,7 @@ Ext.define('Feed.view.AddFormView', {
                         labelWidth: '35%',
                         required: true,
                         id:'numFieldId',
-                        name:'num',
+                        name:'qty',
                         placeHolder: '输入数字'
                     }
                 ]
